@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace Hotel.Domain.SeedWork;
+namespace HotelBook.Domain.SeedWork;
 
 public interface IRepository<T> where T : class
 {

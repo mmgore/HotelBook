@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace Hotel.Domain.AggregatesModel.HotelAggregate;
+namespace HotelBook.Domain.AggregatesModel.HotelAggregate;
 
 public interface IHotelRepository
 {

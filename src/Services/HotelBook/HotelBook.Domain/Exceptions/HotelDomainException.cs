@@ -1,4 +1,4 @@
-namespace Hotel.Domain.Exceptions;
+namespace HotelBook.Domain.Exceptions;
 
 public class HotelDomainException : Exception
 {

@@ -1,7 +1,7 @@
-using Hotel.Domain.Exceptions;
-using Hotel.Domain.SeedWork;
+using HotelBook.Domain.Exceptions;
+using HotelBook.Domain.SeedWork;
 
-namespace Hotel.Domain.AggregatesModel.HotelAggregate;
+namespace HotelBook.Domain.AggregatesModel.HotelAggregate;
 
 public class HotelInformation : Entity
 {

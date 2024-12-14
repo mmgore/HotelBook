@@ -1,4 +1,4 @@
-namespace Hotel.Domain.SeedWork;
+namespace HotelBook.Domain.SeedWork;
 
 public class Entity
 {
