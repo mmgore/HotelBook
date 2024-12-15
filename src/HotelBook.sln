@@ -12,5 +12,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.Infrastructure", 
 EndProject
 Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{325B5ABD-9F6E-4D6F-9570-AD4488D4A3B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325B5ABD-9F6E-4D6F-9570-AD4488D4A3B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325B5ABD-9F6E-4D6F-9570-AD4488D4A3B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325B5ABD-9F6E-4D6F-9570-AD4488D4A3B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFC24DA-F4E0-4D69-85DD-64E62FDB9237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFC24DA-F4E0-4D69-85DD-64E62FDB9237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFC24DA-F4E0-4D69-85DD-64E62FDB9237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFC24DA-F4E0-4D69-85DD-64E62FDB9237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E5A905B-8959-4447-AB22-A1CE6A1F56E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5A905B-8959-4447-AB22-A1CE6A1F56E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5A905B-8959-4447-AB22-A1CE6A1F56E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5A905B-8959-4447-AB22-A1CE6A1F56E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal

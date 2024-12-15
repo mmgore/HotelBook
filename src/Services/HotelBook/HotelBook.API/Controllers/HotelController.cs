@@ -1,5 +1,6 @@
 using System.Net;
 using HotelBook.Application.Commands.CreateHotel;
+using HotelBook.Application.Commands.DeleteHotel;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +17,17 @@ public class HotelController : ControllerBase
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
     }
 
-    [Route("api/v1/Hotels")]
+    [Route("v1/Hotel")]
     [HttpPost]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> CreateHotel([FromBody]CreateHotelCommand command)
         => Ok(await _mediator.Send(command));
+    
+    [Route("v1/Hotel/{id}")]
+    [HttpDelete]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> DeleteHotel([FromRoute]Guid id)
+        => Ok(await _mediator.Send(new DeleteHotelCommand(id)));
 }
