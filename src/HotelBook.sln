@@ -1,0 +1,12 @@
+﻿Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.API", "Services\HotelBook\HotelBook.API\HotelBook.API.csproj", "{325B5ABD-9F6E-4D6F-9570-AD4488D4A3B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.Application", "Services\HotelBook\HotelBook.Application\HotelBook.Application.csproj", "{9AFC24DA-F4E0-4D69-85DD-64E62FDB9237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.Domain", "Services\HotelBook\HotelBook.Domain\HotelBook.Domain.csproj", "{9E5A905B-8959-4447-AB22-A1CE6A1F56E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.Infrastructure", "Services\HotelBook\HotelBook.Infrastructure\HotelBook.Infrastructure.csproj", "{575EFD4E-1026-4DDE-A78B-FABFB6326C89}"
+EndProject
+Global
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+EndGlobal
