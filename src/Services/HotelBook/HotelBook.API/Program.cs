@@ -1,5 +1,6 @@
 using System.Reflection;
 using FluentValidation.AspNetCore;
+using HotelBook.Application.Automapper;
 using HotelBook.Application.Commands.CreateHotel;
 using HotelBook.Domain.AggregatesModel.HotelAggregate;
 using HotelBook.Domain.SeedWork;
@@ -36,6 +37,9 @@ builder.Services
 
 builder.Services
     .AddMediatR(typeof(CreateHotelCommandHandler).GetTypeInfo().Assembly);
+
+builder.Services
+    .AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
 
 var app = builder.Build();
 

@@ -1,6 +1,7 @@
 using System.Net;
 using HotelBook.Application.Commands.CreateHotel;
 using HotelBook.Application.Commands.DeleteHotel;
+using HotelBook.Application.Quaries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,4 +31,11 @@ public class HotelController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> DeleteHotel([FromRoute]Guid id)
         => Ok(await _mediator.Send(new DeleteHotelCommand(id)));
+
+    [Route("v1/AuthorizedPersonList")]
+    [HttpGet]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<ActionResult<AuthorizedPersonListViewModel>> GetAuthorizedPersonList()
+        => Ok(await _mediator.Send(new GetAuthorizedPersonListQuery()));
 }
