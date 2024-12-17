@@ -16,7 +16,7 @@ public class ReportAppService : IReportAppService
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
     }
 
-    public async Task InsertReportAsync(string location)
+    public async Task CreateHotelLocationReport(string location)
     {
         var hotellocationReport = await _hotelInformationRepository.GetHotelLocationReport(location);
 
