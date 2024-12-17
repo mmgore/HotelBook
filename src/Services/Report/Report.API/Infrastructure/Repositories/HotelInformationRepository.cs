@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Report.API.Domain.Entities;
 using Report.API.Domain.Interfaces;
 
@@ -35,4 +36,18 @@ public class HotelInformationRepository: IHotelInformationRepository
 
     public async Task<IEnumerable<HotelInformation>> GetHotelInformations()
         => await _repository.GetAllAsync();
+
+    public async Task<HotelLocationReport> GetHotelLocationReport(string location)
+    {
+        return await _repository.Queryable()
+            .Where(h => h.Location == location)
+            .GroupBy(h => h.Location)
+            .Select(x => new HotelLocationReport
+            {
+                Location = x.Key,
+                HotelCount = x.Select(h => h.HotelId).Distinct().Count(),
+                PhoneNumberCount = x.Select(h => h.PhoneNumber).Distinct().Count(),
+
+            }).FirstOrDefaultAsync();
+    }
 }

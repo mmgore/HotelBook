@@ -11,4 +11,5 @@ public interface IHotelInformationRepository
     Task<HotelInformation> GetHotelInformationById(Guid id);
     Task<HotelInformation> GetHotelInformation(Expression<Func<HotelInformation, bool>> predicate);
     Task<IEnumerable<HotelInformation>> GetHotelInformations();
+    Task<HotelLocationReport> GetHotelLocationReport(string lcoation);
 }
