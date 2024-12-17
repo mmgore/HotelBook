@@ -13,4 +13,9 @@ public class ReportContext : DbContext
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<HotelInformation> HotelInformations { get; set; }
         public DbSet<ReportItem> ReportItems { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+                modelBuilder.ApplyConfigurationsFromAssembly(typeof(ReportContext).Assembly);
+        }
 }
