@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Report.API.Application.Intefaces;
+using Report.API.Application.Services;
 using Report.API.Domain.Interfaces;
 using Report.API.Infrastructure;
 using Report.API.Infrastructure.Repositories;
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
@@ -22,6 +26,12 @@ builder.Services
 
 builder.Services
     .AddScoped<IHotelInformationRepository, HotelInformationRepository>();
+
+builder.Services
+    .AddScoped<IReportRepository, ReportRepository>();
+
+builder.Services
+    .AddScoped<IReportAppService, ReportAppService>();
 
 builder.Services
     .AddDbContext<ReportContext>(opt =>
