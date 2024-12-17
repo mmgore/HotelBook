@@ -10,5 +10,9 @@ public class HotelContext : DbContext
     }
     DbSet<Hotel> Hotels { get; set; }
     DbSet<HotelInformation> HotelInformations { get; set; }
-    
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(HotelContext).Assembly);
+    }
 }
