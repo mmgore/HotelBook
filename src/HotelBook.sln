@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.Domain", "Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBook.Infrastructure", "Services\HotelBook\HotelBook.Infrastructure\HotelBook.Infrastructure.csproj", "{575EFD4E-1026-4DDE-A78B-FABFB6326C89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.API", "Services\Report\Report.API\Report.API.csproj", "{F86C5444-4C17-4E86-AF80-6E41E6721791}"
+EndProject
 Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{325B5ABD-9F6E-4D6F-9570-AD4488D4A3B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{575EFD4E-1026-4DDE-A78B-FABFB6326C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86C5444-4C17-4E86-AF80-6E41E6721791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86C5444-4C17-4E86-AF80-6E41E6721791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86C5444-4C17-4E86-AF80-6E41E6721791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86C5444-4C17-4E86-AF80-6E41E6721791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
