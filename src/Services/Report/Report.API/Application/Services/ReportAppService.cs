@@ -57,4 +57,20 @@ public class ReportAppService : IReportAppService
 
         return reportListDto;
     }
+
+    public async Task<ReportDto> GetReportById(Guid id)
+    {
+        var reportItem = await _reportRepository.GetReportItemByIdAsync(id);
+
+        var reportDto = new ReportDto()
+        {
+            ReportName = reportItem.ReportName,
+            HotelCount = reportItem.HotelCount,
+            Location = reportItem.Location,
+            PhoneNumberCount = reportItem.PhoneNumberCount,
+            Status = reportItem.Status.ToDtoStatus()
+        };
+        
+        return reportDto;
+    }
 }

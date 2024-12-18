@@ -7,4 +7,5 @@ public interface IReportAppService
 {
     Task CreateHotelLocationReport(string location);
     Task<IEnumerable<ReportListDto>> GetReportList();
+    Task<ReportDto> GetReportById(Guid id);
 }

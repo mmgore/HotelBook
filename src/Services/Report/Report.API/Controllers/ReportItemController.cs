@@ -31,4 +31,11 @@ public class ReportItemController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<ActionResult<ReportListDto>> GetReportList()
         => Ok(await _reportAppService.GetReportList());
+    
+    [Route("v1/Report/{id}")]
+    [HttpGet]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<ActionResult<ReportDto>> GetReportById([FromRoute] Guid id)
+        => Ok(await _reportAppService.GetReportById(id));
 }

@@ -19,4 +19,7 @@ public class ReportRepository : IReportRepository
 
     public async Task<IEnumerable<ReportItem>> GetReportItemsAsync()
         => await _repository.GetAllAsync();
+
+    public async Task<ReportItem> GetReportItemByIdAsync(Guid id)
+        => await _repository.GetAsync(id);
 }
