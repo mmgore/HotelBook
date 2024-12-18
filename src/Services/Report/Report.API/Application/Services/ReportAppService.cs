@@ -1,3 +1,4 @@
+using Report.API.Application.Dtos;
 using Report.API.Application.Intefaces;
 using Report.API.Domain.Entities;
 using Report.API.Domain.Interfaces;
@@ -38,5 +39,22 @@ public class ReportAppService : IReportAppService
         await _unitOfWork.SaveChangesAsync();
         
         _messageSender.PublishMessage(reportItem);
+    }
+
+    public async Task<IEnumerable<ReportListDto>> GetReportList()
+    {
+        var reportList = await _reportRepository.GetReportItemsAsync();
+        List<ReportListDto> reportListDto = new List<ReportListDto>();
+
+        foreach (var reportItem in reportList)
+        {
+            ReportListDto reportDto = new ReportListDto();
+            reportDto.ReportName = reportItem.ReportName;
+            reportDto.Location = reportItem.Location;
+            reportDto.Status = reportItem.Status.ToDtoStatus();
+            reportListDto.Add(reportDto);
+        }
+
+        return reportListDto;
     }
 }

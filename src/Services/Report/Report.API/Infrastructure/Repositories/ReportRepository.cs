@@ -16,4 +16,7 @@ public class ReportRepository : IReportRepository
     {
         await _repository.InsertAsync(reportItem);
     }
+
+    public async Task<IEnumerable<ReportItem>> GetReportItemsAsync()
+        => await _repository.GetAllAsync();
 }

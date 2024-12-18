@@ -1,5 +1,6 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Report.API.Application.Dtos;
 using Report.API.Application.Intefaces;
 
 namespace Report.API.Controllers;
@@ -23,4 +24,11 @@ public class ReportItemController : ControllerBase
         await _reportAppService.CreateHotelLocationReport(location);
         return Ok();
     }
+
+    [Route("api/v1/ReportList")]
+    [HttpGet]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<ActionResult<ReportListDto>> GetReportList()
+        => Ok(await _reportAppService.GetReportList());
 }
