@@ -10,6 +10,9 @@ public class ReportItemEntityTypeConfigration : IEntityTypeConfiguration<ReportI
     {
         builder.HasKey(b=>b.Id);
         
+        builder.Property(b => b.ReportName)
+            .IsRequired();
+        
         builder.Property(b => b.Location)
             .IsRequired();
         
