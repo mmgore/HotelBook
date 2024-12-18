@@ -9,5 +9,5 @@ public class ReportItem
     public int PhoneNumberCount { get; set; }
     public int Status { get; set; }
     public DateTime CreatedDate { get; set; }
-    public DateTime UpdatedDate { get; set; }
+    //public DateTime UpdatedDate { get; set; }
 }
