@@ -21,7 +21,7 @@ public class MessageSender : IMessageSender
 
         using var channel = await connection.CreateChannelAsync();
 
-        channel.QueueDeclareAsync("report", true, true);
+        channel.QueueDeclareAsync("report", true, false);
         var json = JsonSerializer.Serialize(message);
         var body = Encoding.UTF8.GetBytes(json);
         
