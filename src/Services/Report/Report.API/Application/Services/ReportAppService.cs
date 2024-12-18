@@ -29,6 +29,7 @@ public class ReportAppService : IReportAppService
             Location = hotellocationReport.Location,
             HotelCount = hotellocationReport.HotelCount,
             PhoneNumberCount = hotellocationReport.PhoneNumberCount,
+            ReportName = $"Report {location}",
             Status = 0,
             CreatedDate = DateTime.Now
         };
