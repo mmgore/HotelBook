@@ -9,11 +9,14 @@ public class ReportAppService : IReportAppService
     private readonly IReportRepository _reportRepository;
     private readonly IHotelInformationRepository _hotelInformationRepository;
     private readonly IUnitOfWork _unitOfWork;
-    public ReportAppService(IReportRepository reportRepository, IHotelInformationRepository hotelInformationRepository, IUnitOfWork unitOfWork)
+    private readonly IMessageSender _messageSender;
+    public ReportAppService(IReportRepository reportRepository, IHotelInformationRepository hotelInformationRepository, 
+        IUnitOfWork unitOfWork, IMessageSender messageSender)
     {
         _reportRepository = reportRepository ?? throw new ArgumentNullException(nameof(reportRepository));
         _hotelInformationRepository = hotelInformationRepository ?? throw new ArgumentNullException(nameof(hotelInformationRepository));
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        _messageSender = messageSender ?? throw new ArgumentNullException(nameof(messageSender));
     }
 
     public async Task CreateHotelLocationReport(string location)
@@ -32,5 +35,7 @@ public class ReportAppService : IReportAppService
         
         await _reportRepository.InsertAsync(reportItem);
         await _unitOfWork.SaveChangesAsync();
+        
+        _messageSender.PublishMessage(reportItem);
     }
 }

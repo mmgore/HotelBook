@@ -37,6 +37,9 @@ builder.Services
     .AddDbContext<ReportContext>(opt =>
         opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelDatabase")));
 
+builder.Services
+    .AddScoped<IMessageSender, MessageSender>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
