@@ -2,6 +2,7 @@ using System.Reflection;
 using FluentValidation.AspNetCore;
 using HotelBook.Application.Automapper;
 using HotelBook.Application.Commands.CreateHotel;
+using HotelBook.Application.Middleware;
 using HotelBook.Domain.AggregatesModel.HotelAggregate;
 using HotelBook.Domain.SeedWork;
 using HotelBook.Infrastructure;
@@ -57,6 +58,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<LoggingMiddleware>();
 
 app.MapControllers();
 
