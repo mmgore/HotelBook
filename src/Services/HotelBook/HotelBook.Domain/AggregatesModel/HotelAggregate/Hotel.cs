@@ -18,10 +18,10 @@ public class Hotel : Entity
     {
         Id = Guid.NewGuid();
         CreatedDate = DateTime.Now;
-        HotelName = !string.IsNullOrWhiteSpace(hotelName) ? hotelName : throw new HotelDomainException(nameof(hotelName));
-        AuthorizedName = !string.IsNullOrWhiteSpace(authorizedName) ? authorizedName : throw new HotelDomainException(nameof(authorizedName));
-        AuthorizedSurname = !string.IsNullOrWhiteSpace(authorizedSurname) ? authorizedSurname : throw new HotelDomainException(nameof(authorizedSurname));;
-        FirmTitle = !string.IsNullOrWhiteSpace(firmTitle) ? firmTitle : throw new HotelDomainException(nameof(firmTitle));;
+        HotelName = !string.IsNullOrWhiteSpace(hotelName) ? hotelName : throw new HotelDomainException("Hotel Name cannot be null");
+        AuthorizedName = !string.IsNullOrWhiteSpace(authorizedName) ? authorizedName : throw new HotelDomainException("Authorized Name cannot be null");
+        AuthorizedSurname = !string.IsNullOrWhiteSpace(authorizedSurname) ? authorizedSurname : throw new HotelDomainException("Authorized Surname cannot be null");;
+        FirmTitle = !string.IsNullOrWhiteSpace(firmTitle) ? firmTitle : throw new HotelDomainException("Firm Title cannot be null");;
     }
     public static Hotel Create(string hotelName, string authorizedName, string authorizedSurname, string firmTitle)
     {
