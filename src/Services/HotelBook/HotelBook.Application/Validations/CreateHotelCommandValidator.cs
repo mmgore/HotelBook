@@ -3,9 +3,9 @@ using HotelBook.Application.Commands.CreateHotel;
 
 namespace HotelBook.Application.Validations;
 
-public class CreateCommandValidator : AbstractValidator<CreateHotelCommand>
+public class CreateHotelCommandValidator : AbstractValidator<CreateHotelCommand>
 {
-    public CreateCommandValidator()
+    public CreateHotelCommandValidator()
     {
         RuleFor(r => r.HotelName)
             .NotEmpty()
