@@ -8,6 +8,9 @@ using HotelBook.Infrastructure;
 using HotelBook.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Serilog.Exceptions;
+using Serilog.Sinks.Elasticsearch;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,9 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
+
+ConfigureLogging();
+builder.Host.UseSerilog();
 
 builder.Services
     .AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -55,3 +61,34 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
+
+void ConfigureLogging()
+{
+    var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+    var configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{environment}.json", optional: true)
+        .Build();
+
+    Log.Logger = new LoggerConfiguration()
+        .Enrich.FromLogContext()
+        .Enrich.WithExceptionDetails()
+        .WriteTo.Console()
+        .WriteTo.Debug()
+        .WriteTo.Elasticsearch(ConfigureElasticSink(configuration, environment))
+        .Enrich.WithProperty("Environment", environment)
+        .ReadFrom.Configuration(configuration)
+        .CreateLogger();
+}
+
+ElasticsearchSinkOptions ConfigureElasticSink(IConfigurationRoot configuration, string environment)
+{
+    return new ElasticsearchSinkOptions(new Uri(configuration["ElasticConfigration:Uri"]))
+    {
+        AutoRegisterTemplate = true,
+        IndexFormat = $"{Assembly.GetEntryAssembly().GetName().Name.ToLower().Replace(".","-")}-{environment.ToLower()}--{DateTime.UtcNow:yyyy-MM)}",
+        NumberOfReplicas = 1,
+        NumberOfShards = 2
+    };
+}
